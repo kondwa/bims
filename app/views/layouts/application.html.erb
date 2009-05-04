@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>BIMS</title>
+    <%=stylesheet_link_tag "bims" %>
+  </head>
+  <body>
+    <div id="main">
+      <div id="head">
+        <h2>Baobab Inventory Management System</h2>
+        <ul id="h-nav">
+          <li><%=link_to "home", root_url %></li>
+          <li>
+            <%if @user_logged_in %>
+              <%=link_to "logout",session_path("logout") %>(<%=@user.username %>)
+            <% else %>
+              <%=link_to "login", session_path("login") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div id="body">
+        <%=flash[:notice]%>
+        <%=flash[:error]%>
+        <%=yield%>
+      </div>
+      <div id="foot">
+        &copy; Boabab Health 2009.
+      </div>
+    </div>
+  </body>
+</html>

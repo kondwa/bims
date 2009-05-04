@@ -1,0 +1,14 @@
+<h1>Account#login</h1>
+<div id="form">
+  <% form_for @user, :url=>{:action=>"do_login"} do |form| %>
+    <div>
+      <%=form.label :username %>
+      <%=form.text_field :username %>
+    </div>
+    <div>
+      <%=form.label :password %>
+      <%=form.password_field :password %>
+    </div>
+      <%=form.submit "Login" %>
+    <% end %>
+</div>
